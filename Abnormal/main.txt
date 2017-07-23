@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+class ShortInputException(Exception):
+	def __init__(self,length,atleast):
+		self.length=length;
+		self.atleast=atleast;
+
+try:
+	s=raw_input('Enter something -->');
+	if len(s)<3:
+		raise ShortInputException(len(s),3);
+except EOFError:
+	print '\nEOF';
+except ShortInputException,x:
+	print '\nShortInputException:The Input length is %d,actual length is %d'%(x.length,x.atleast);
+else:
+	print'No exception was raised.';
