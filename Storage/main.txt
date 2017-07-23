@@ -1,0 +1,13 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*- 
+
+import cPickle as p;  #'''把cPickle变成更短的模块名称'''
+shoplistfile='shoplist.data';  
+shoplist=['apple','mango','carrot'];
+f=file(shoplistfile,'w');   #'''建立文件'''
+p.dump(shoplist,f);        # '''调用储存器函数dump，把'''
+f.close();
+
+f=file(shoplistfile);     
+storedlist=p.load(f);	#取回对象
+print storedlist;
