@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+d={};
+while True:
+	print 'What do you want to do:\n1.add a contacts.\n2.delete a contacts.\n3.check the telephone book.\n4.Quit.'
+	chioce=int(raw_input(''));
+	if chioce is 1:
+		Name=raw_input('Contacts name is:');
+		PhoneNum=int(raw_input('Contacts phone num is:'));
+		d[Name]=PhoneNum;
+		print 'Contacts %s add successful!\n'%Name;
+	elif chioce is 2:
+		if len(d)==0:
+			print 'There nobody in the phonebook.';
+		else :
+			Name=raw_input('The name you want to delete:');
+			if Name in d.keys():
+				del d[Name];
+				print 'Contacts %s delete successful!\n'%Name;
+			else:
+				print 'No this one';
+	elif chioce is 3:
+		if len(d)!=0:
+			print 'The phonebook is\n';
+			print d,'\n';
+		else:
+			print 'No one';
+	elif chioce is 4:
+		break;
+	else:
+		print 'This is a mistake,please chioce again\n';
