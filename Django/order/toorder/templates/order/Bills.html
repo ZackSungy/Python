@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bills</title>
+</head>
+<body>
+    <table border="1px solid">
+        <tr style="background:red;">
+            <td>付款人</td>
+            <td>数据</td>
+            <td>总金额</td>
+        </tr>
+    {% for Bill in Bills %}
+    <tr>
+        <td>{{Bill.paper}}</td>
+        <td>{{Bill.sq}}</td>
+        <td>{{Bill.money}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    <a href="{% url 'toorder:Home'%}">返回主页<</a>
+</body>
+</html>

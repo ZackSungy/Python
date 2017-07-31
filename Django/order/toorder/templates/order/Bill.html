@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill</title>
+</head>
+<body>
+    <dir id="dir">共：0人，总计：0.00元，团长：封单后才能机选团长</dir>
+    <form action="{% url 'toorder:Bill' %}" method="post">
+        {% csrf_token %}
+        <input id="na" type="text" value="输出名字">
+       	<br/>
+        <input id="mon" type="text" value="输出价钱">
+        <input type="button" value="提交" onclick="sub()">
+        <input type="button" value="机选团长" onclick="random()">
+        <input id="paper" type="hidden" name="paper">
+        <input id="sq" type="hidden" name="sq">
+        <input id="money" type="hidden" name="money">
+        <input type="submit" value="提交订单">
+    </form>
+    <dir id="dir1" ></dir>
+    <dir id="dir2"></dir>
+    <script>
+        paper=document.getElementById('paper')
+        sq=document.getElementById('sq')
+        money=document.getElementById('money')
+        na=document.getElementById('na')
+        mon=document.getElementById('mon')
+        dir=document.getElementById('dir')
+        dir1=document.getElementById('dir1')
+		dir2=document.getElementById('dir2')
+        p=0;
+        m=0.00;
+        s1=new Array;
+        s2=[];
+        function sub()
+        {
+        	p+=1;
+            m+=parseFloat(mon.value);
+            s1=s1+na.value+':'+mon.value+" \n";
+            sq.value=s1;
+            s2.push(na.value);
+            console.log(s2);
+            dir.innerHTML='共：'+p+'人，总计：'+m+'元，团长：封单后才能机选团长';
+            dir2.innerHTML=s2;
+            na.value="";
+            mon.value="";
+        }
+
+        function random()
+        {
+        	ran=(Math.floor(Math.random()*10000))%p;
+        	dir1.innerHTML='团长：'+s2[ran]+"<br/>"+'总计(元)：'+m;
+        	paper.value=s2[ran];
+        	sq.value=s1;
+        	money.value=m;
+        }
+    </script>
+</body>
+</html>

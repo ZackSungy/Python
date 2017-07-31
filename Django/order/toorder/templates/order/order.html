@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+     <style>
+        * {margin:0;
+            padding:0;}
+         table{
+            border:none;
+            font-size:25px;
+            text-align:center;
+         }
+         th
+    </style>
+</head>
+<body>
+    <table border="1px soild">
+        <tr style="background:red;">
+            <td>食物</td>
+            <td>价钱</td>
+        </tr>
+            {% for order in orders %}
+            <tr>
+            <td>{{order.name}}</td>
+            <td>{{order.momey}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'toorder:chioce' %}">选团长</a>
+</body>
+</html>

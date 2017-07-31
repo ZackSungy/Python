@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {margin:0;
+            padding:0;}
+         table{
+            border:none;
+            font-size:25px;
+            text-align:center;
+         }
+         th
+    </style>
+</head>
+<body>
+    <table border="1px soild">
+        <tr style="background:red;">
+            <td>编号</td>
+            <td>餐馆名字</td>
+            <td>电话</td>
+            <td>备注</td>
+        </tr>
+            {% for business in businesses %}
+            <tr>
+            <td>{{business.num}}</td>
+                <td><a href="{% url 'toorder:Order' business.num%}">{{business.name}}</a></td>
+            <td>{{business.call}}</td>
+            <td>{{business.rem}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
